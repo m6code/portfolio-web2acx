@@ -4,6 +4,7 @@ import NavBar from "./components/navbar/NavBar.jsx";
 import {Intro} from "./components/intro/Intro.jsx";
 import Skills from "./components/skills/Skills.jsx";
 import Works from "./components/works/Works.jsx";
+import Contact from "./components/contact/Contact.jsx";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
             <Intro/>
             <Skills />
             <Works />
+            <Contact />
         </>
     )
 }
