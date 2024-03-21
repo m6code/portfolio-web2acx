@@ -18,21 +18,21 @@ const Contact = () => {
     const {VITE_SERVICE_ID, VITE_TEMPLATE_ID, VITE_PUBLIC_KEY} = import.meta.env;
     const sendEmail = (e) => {
         e.preventDefault();
+        if(e.target[0].value.trim().length !== 0 && e.target[2].value.trim().length !== 0) {
+            emailjs
+                .sendForm(VITE_SERVICE_ID, VITE_TEMPLATE_ID, form.current, {publicKey: VITE_PUBLIC_KEY,})
+                .then(
+                    () => {
+                        console.log('SUCCESS!');
+                        alert("Message Sent")
+                    },
+                    (error) => {
+                        console.log('FAILED...', error.text);
+                    },
+                );
 
-        emailjs
-            .sendForm(VITE_SERVICE_ID, VITE_TEMPLATE_ID, form.current, {publicKey: VITE_PUBLIC_KEY,})
-            .then(
-                () => {
-                    console.log('SUCCESS!');
-                    alert("Message Sent")
-                },
-                (error) => {
-                    console.log('FAILED...', error.text);
-                },
-            );
-
-        e.target.reset();
-
+            e.target.reset();
+        } else alert("Please enter a name and a message");
     }
 
 
@@ -54,10 +54,10 @@ const Contact = () => {
                     <span
                         className="contactDesc">Please fill out the form below to discuss any work opportunities</span>
                     <form className="contactForm" ref={form} onSubmit={sendEmail}>
-                        <input type="text" className="name" placeholder="Your name" name="from_name"/>
-                        <input type="email" className="email" placeholder="Your email" name="from_email_address"/>
+                        <input type="text" className="name" placeholder="Your name" name="from_name" required/>
+                        <input type="email" className="email" placeholder="Your email" name="from_email_address" required/>
                         <textarea name="message" id="" cols="30" rows="10" className="msg"
-                                  placeholder="Your message"></textarea>
+                                  placeholder="Your message" required></textarea>
                         <input type="hidden" value="Portfolio | Web2acx" name="appName"/>
                         <button className="submitBtn" type="submit" value="send">Submit</button>
 

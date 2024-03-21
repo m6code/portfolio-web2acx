@@ -74,6 +74,15 @@
     margin: 2rem;
 }
 
+.submitBtn:hover {
+    background-color: #fff7bc;
+    cursor: pointer;
+}
+
+.submitBtn:active {
+  background-color: #ffe71e;
+}
+
 .links {
     display: flex;
     flex-wrap: wrap;
