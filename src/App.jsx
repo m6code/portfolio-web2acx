@@ -5,6 +5,7 @@ import {Intro} from "./components/intro/Intro.jsx";
 import Skills from "./components/skills/Skills.jsx";
 import Works from "./components/works/Works.jsx";
 import Contact from "./components/contact/Contact.jsx";
+import Footer from "./components/footer/Footer.jsx";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
             <Skills />
             <Works />
             <Contact />
+            <Footer />
         </>
     )
 }
