@@ -31,6 +31,8 @@ const Contact = () => {
                 },
             );
 
+        e.target.reset();
+
     }
 
 
