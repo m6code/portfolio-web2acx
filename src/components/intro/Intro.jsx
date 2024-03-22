@@ -1,7 +1,7 @@
 import "./intro.css"
 import {Link} from "react-scroll";
 import btnImgHire from "../../assets/hireme.png"
-import bgIntro from "../../assets/image.png"
+import bgIntro from "../../assets/image_2.png"
 export const Intro = () => {
     return (
         <section id="intro">
