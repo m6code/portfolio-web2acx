@@ -1,5 +1,5 @@
 import emailjs from '@emailjs/browser';
-
+import {Toaster, toast } from "sonner"
 import "./contact.css"
 import clientWalmart from "../../assets/walmart.png"
 import clientMicrosoft from "../../assets/microsoft.png"
@@ -23,8 +23,12 @@ const Contact = () => {
                 .sendForm(VITE_SERVICE_ID, VITE_TEMPLATE_ID, form.current, {publicKey: VITE_PUBLIC_KEY,})
                 .then(
                     () => {
-                        console.log('SUCCESS!');
-                        alert("Message Sent")
+                        // console.log('SUCCESS!');
+                        // alert("Message Sent")
+                        toast.success("Your message has been successfully sent.", {
+                            duration: 8000,
+                            description: "We will get back to you soon"
+                        })
                     },
                     (error) => {
                         console.log('FAILED...', error.text);
@@ -32,12 +36,19 @@ const Contact = () => {
                 );
 
             e.target.reset();
-        } else alert("Please enter a name and a message");
+        } else {
+            //alert("Please enter a name and a message");
+            toast.error("Missing required information", {
+                description: "Please make sure to enter your name and your message too",
+                duration: 10000
+            });
+        }
     }
 
 
     return (
         <section id="contactPage">
+            <Toaster richColors position="bottom-center" closeButton/>
             <div id="clients">
                 <h1 className="contactPageTitle">My Clients</h1>
                 <p className="clientDesc">I have had the opportunity to work with a diverse group of companies some of
